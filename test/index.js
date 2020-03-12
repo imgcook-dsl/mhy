@@ -32,7 +32,6 @@ co(function*() {
       }
     }
   });
-
   if (renderInfo.noTemplate) {
     renderInfo.panelDisplay.forEach((file) => {
       fs.writeFileSync(path.join(__dirname, `../code/${file.panelName}`), file.panelValue);
@@ -46,11 +45,13 @@ co(function*() {
     );
 
     const prettierOpt = renderInfo.prettierOpt || {
-      printWidth: 120
+      parser: 'vue',
+      printWidth: 80,
+      singleQuote: true
     };
 
     const prettierRes = prettier.format(ret, prettierOpt);
 
-    fs.writeFileSync(path.join(__dirname,'../code/result.js'), prettierRes);
+    fs.writeFileSync(path.join(__dirname,'../code/result.vue'), prettierRes);
   }
 });
