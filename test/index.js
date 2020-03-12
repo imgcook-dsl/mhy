@@ -32,6 +32,7 @@ co(function*() {
       }
     }
   });
+
   if (renderInfo.noTemplate) {
     renderInfo.panelDisplay.forEach((file) => {
       fs.writeFileSync(path.join(__dirname, `../code/${file.panelName}`), file.panelValue);

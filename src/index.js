@@ -501,7 +501,7 @@ module.exports = function (schema, option) {
         panelValue: prettier.format(scssStyles, {
           parser: 'css'
         }),
-        panelType: 'scss'
+        panelType: 'css'
       }
     ],
     renderData: {
