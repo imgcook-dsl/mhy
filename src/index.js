@@ -494,7 +494,7 @@ module.exports = function (schema, option) {
         panelType: 'vue',
       },
       {
-        panelName: 'index.pc.scss',
+        panelName: 'index.px.scss',
         panelValue: prettier.format(scssPcStyles, {
           parser: 'css'
         }),
