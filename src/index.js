@@ -29,8 +29,11 @@ module.exports = function (schema, option) {
   // styles
   const styles = [];
 
-  // scssStyles
-  let scssStyles = '';
+  // scssMobileStyles
+  let scssMobileStyles = '';
+
+  // scssPcStyles
+  let scssPcStyles = '';
 
   const styles4vw = [];
 
@@ -86,14 +89,13 @@ module.exports = function (schema, option) {
   };
 
   // convert to responsive unit, such as vw
-  const parseStyle = (style, toVW) => {
+  const parseStyle = (style, isPx) => {
     const styleData = [];
     for (let key in style) {
       let value = style[key];
       if (boxStyleList.indexOf(key) != -1) {
-        if (toVW) {
-          value = (parseInt(value) / _w).toFixed(2);
-          value = value == 0 ? value : value + 'vw';
+        if (isPx) {
+          value = value == 0 ? value : value ;
         } else {
           value = (parseInt(value)).toFixed(2);
           // value = value == 0 ? value : value + 'px';
@@ -406,26 +408,26 @@ module.exports = function (schema, option) {
   };
 
   // 生成自定义scss
-  const generateStyle = (schema) => {
+  const generateStyle = (schema, isPx = false) => {
     const className = schema.props && schema.props.className;
 
     if (schema.children && schema.children.length) {
       if (className) {
         return `.${className} {
-              ${parseStyle(schema.props.style)};\n
+              ${parseStyle(schema.props.style, isPx)};\n
               ${schema.children.map(item => {
-                return generateStyle(item)
+                return generateStyle(item, isPx)
               }).join('\n')}
             }`
       } else {
         return schema.children.map(item => {
-          return generateStyle(item)
+          return generateStyle(item, isPx)
         }).join('\n')
       }
     } else {
       if (className) {
         return `.${className} {
-              ${parseStyle(schema.props.style)};
+              ${parseStyle(schema.props.style, isPx)};
             }`
       } else {
         return ''
@@ -439,10 +441,12 @@ module.exports = function (schema, option) {
 
     if (Array.isArray(schema)) {
       schema.forEach((layer) => {
-        scssStyles += generateStyle(layer);
+        scssMobileStyles += generateStyle(layer);
+        scssPcStyles += generateStyle(layer, true);
       });
     } else {
-      scssStyles = generateStyle(schema);
+      scssMobileStyles = generateStyle(schema);
+      scssPcStyles += generateStyle(schema, true)
     }
 
   }
@@ -455,7 +459,7 @@ module.exports = function (schema, option) {
 
   // start parse schema 开始解析
   transform(schema);
-  combineStyle(schema)
+  combineStyle(schema);
   datas.push(`constants: ${toString(constants)}`);
 
   const prettierOpt = {
@@ -490,15 +494,15 @@ module.exports = function (schema, option) {
         panelType: 'vue',
       },
       {
-        panelName: 'index.css',
-        panelValue: prettier.format(`${styles.join('\n')}`, {
+        panelName: 'index.pc.scss',
+        panelValue: prettier.format(scssPcStyles, {
           parser: 'css'
         }),
         panelType: 'css'
       },
       {
         panelName: 'index.scss',
-        panelValue: prettier.format(scssStyles, {
+        panelValue: prettier.format(scssMobileStyles, {
           parser: 'css'
         }),
         panelType: 'css'

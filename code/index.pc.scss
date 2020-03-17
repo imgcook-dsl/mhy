@@ -4,79 +4,79 @@
   flex-direction: column;
   justify-content: center;
   background-color: #f2f2f2;
-  width: 7.5rem;
-  height: 6.35rem;
+  width: 750px;
+  height: 635px;
 
   .bd {
-    margin-left: 0.31rem;
-    width: 3.18rem;
-    max-width: 7.07rem;
-    height: 0.33rem;
+    margin-left: 31px;
+    width: 318px;
+    max-width: 707px;
+    height: 33px;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 0.33rem;
+    line-height: 33px;
     letter-spacing: 0.11px;
     white-space: pre;
     color: #000000;
-    font-size: 0.24rem;
+    font-size: 24px;
     font-weight: 500;
   }
   .ft {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 0.27rem;
-    width: 7.49rem;
+    margin-top: 27px;
+    width: 749px;
 
     .outer {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
-      border-radius: 0.12rem;
+      border-radius: 12px;
       background-color: rgba(232, 195, 148, 0.82);
-      width: 6.89rem;
-      height: 4.9rem;
+      width: 689px;
+      height: 490px;
 
       .getStart {
-        margin-top: 0.28rem;
-        margin-left: 0.28rem;
-        width: 0.93rem;
-        max-width: 6.49rem;
-        height: 0.3rem;
+        margin-top: 28px;
+        margin-left: 28px;
+        width: 93px;
+        max-width: 649px;
+        height: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 0.3rem;
+        line-height: 30px;
         letter-spacing: 0.08px;
         white-space: pre;
         color: #4d4d4d;
-        font-size: 0.22rem;
+        font-size: 22px;
         font-weight: 500;
       }
       .title {
-        margin-top: 0.18rem;
-        margin-left: 0.28rem;
-        width: 3.89rem;
-        max-width: 6.49rem;
-        height: 0.3rem;
+        margin-top: 18px;
+        margin-left: 28px;
+        width: 389px;
+        max-width: 649px;
+        height: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 0.3rem;
+        line-height: 30px;
         letter-spacing: 0.08px;
         white-space: pre;
         color: #ffffff;
-        font-size: 0.22rem;
+        font-size: 22px;
         font-weight: 500;
       }
       .itemWrap {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-top: 0.36rem;
-        width: 6.88rem;
+        margin-top: 36px;
+        width: 688px;
 
         .item {
-          width: 2.2rem;
-          height: 2.07rem;
+          width: 220px;
+          height: 207px;
         }
       }
       .tryWrap {
@@ -84,22 +84,22 @@
         display: flex;
         align-items: center;
         flex-direction: row;
-        margin-top: 0.89rem;
-        margin-left: 5.87rem;
-        border-radius: 0.15rem;
+        margin-top: 89px;
+        margin-left: 587px;
+        border-radius: 15px;
         background-color: #eeeeee;
-        padding-right: 0.28rem;
-        padding-left: 0.28rem;
-        height: 0.3rem;
+        padding-right: 28px;
+        padding-left: 28px;
+        height: 30px;
 
         .try {
-          width: 0.25rem;
-          height: 0.22rem;
-          line-height: 0.22rem;
+          width: 25px;
+          height: 22px;
+          line-height: 22px;
           letter-spacing: 0.07px;
           white-space: nowrap;
           color: #b38765;
-          font-size: 0.16rem;
+          font-size: 16px;
           font-weight: 500;
         }
       }
